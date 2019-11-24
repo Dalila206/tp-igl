@@ -16,7 +16,7 @@
         <v-spacer></v-spacer>
         <v-dialog v-model="dialog" max-width="500px">
           <template v-slot:activator="{ on }">
-            <v-btn color="primary" dark class="mb-2" v-on="on">Ajouter Enseignant</v-btn>
+            <v-btn color="primary" dark class="mb-2" v-on="on">Ajouter Etudiant</v-btn>
           </template>
           <v-card>
             <v-card-title>
@@ -26,7 +26,9 @@
             <v-card-text>
               <v-container>
                 <v-row>
-                  
+                   <v-col cols="12" sm="6" md="4">
+                    <v-text-field v-model="editedItem.id" label="id"></v-text-field>
+                  </v-col>
                   <v-col cols="12" sm="6" md="4">
                     <v-text-field v-model="editedItem.nom" label="nom"></v-text-field>
                   </v-col>
@@ -43,8 +45,8 @@
 
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
-              <v-btn color="blue darken-1" text @click="save">Save</v-btn>
+              <v-btn color="blue darken-1" text @click="close">Annuler</v-btn>
+              <v-btn color="blue darken-1" text @click="save">Enregistrer</v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -74,16 +76,16 @@
       dialog: false,
       headers: [
        
-        { text: 'Nom',align: 'left', value: 'nom' },
+        { text: 'id',align: 'left', value: 'id' },
+        { text: 'Nom', value: 'nom' },
         { text: 'Prenom', value: 'prenom' },
         { text: 'groupe', value: 'groupe' },
-        
         { text: 'Actions', value: 'action', sortable: false },
       ],
        etudiants: [],
       editedIndex: -1,
       editedItem: {
-       
+         id:'',
         nom: '',
         prenom: '',
         groupe: '',
@@ -91,6 +93,7 @@
       },
       defaultItem: {
         
+        id:'',
         nom: '',
         prenom: '',
         groupe: '',
@@ -118,14 +121,14 @@
       initialize () {
         this.etudiants = [
           {
-            
+            id : '1',
             nom: 'guessas',
             prenom: 'mohand',
             groupe: '1cp5',
            
           },
           {
-            
+            id :'2',
             nom: 'ait benali',
             prenom: 'faycal',
             groupe: '1cs5',
@@ -133,7 +136,7 @@
           },
           
           {
-             
+             id:'3',
             nom: 'ait benali',
             prenom: 'faycal',
             groupe: '2cp6',
@@ -151,7 +154,7 @@
 
       deleteItem (item) {
         const index = this.etudiants.indexOf(item)
-        confirm('Are you sure you want to delete this item?') && this.etudiants.splice(index, 1)
+        confirm('est ce que vous etes sur de supprimer cet etudiant ?') && this.etudiants.splice(index, 1)
       },
 
       close () {
