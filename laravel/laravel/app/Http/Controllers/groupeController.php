@@ -3,55 +3,43 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use app\Http\Resources\groupe as goupeResource;
-use app\Http\Requests;
-use app;
-
-
-class groupeController extends Controller
+use App\Groupe ;  
+class GroupeController extends Controller
 {
-   /* public function store(Request $request)
+    public function store(Request $request)
     {
-        $groupe = new groupe([
-            'nom' => $request->get('nom'),
-            'prenom' => $request->get('prenom'),
-            'notes' => $request->get('notes')
-        ]);
+        $groupe = new Groupe();
+        $groupe->nom = $request->input('nom');
+        $groupe->prenom = $request->input('prenom');
+        $groupe->notes = $request->input('notes');
         $groupe -> save();
         return response()->json('success');
-         }*/
-
-         public function index()
-         {
-             $groupe = groupe::all();
-             return response()->json($groupe);
          }
-         /*
-         public function edit($id)
+         public function listgroup()
          {
-           $groupe = groupe::find($id);
-           return response()->json($groupe);
-         }
-         public function afficher()
-         {
-             $groupes = (groupe::all());
-              
+             $groupe = Groupe::all();
             return response()->json($groupe);
-            //return goupeResource::collection($groupes);
          }
-         public function update($id,Request $request)
+        
+         public function update(Request $request,$id)
          {
-            $groupe = groupe::find($id);
-            $groupe-> update($request->all());
-            return response()->json('successfully updated');
+             $groupe = Groupe::find($id);
+             $groupe->nom = $request->input('nom');
+             $groupe->prenom = $request->input('prenom');
+             $groupe->notes = $request->input('notes');
+             $groupe -> save();
+             return response()->json(Groupe::all());
          }
-         public function delete($id)
+         public function delete(Request $request,$id)
          {
-          $groupe = groupe::find($id);
+           
+                $groupe = Groupe::find($id);
 
-           $groupe->delete();
+                $groupe->delete();
+                return response()->json('users deleted');
+            
+            
 
-           return response()->json('successfully deleted');
+          
         }
-        */
 }

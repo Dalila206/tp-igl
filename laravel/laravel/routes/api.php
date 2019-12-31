@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
-
+use APP\Controller\GroupeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,13 +19,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::post('/enseignant/create', 'enseignantController@store');
 Route::get('/enseignant/edit/{id}', 'enseignantController@edit');
-Route::post('/enseignant/update/{id}', 'enseignantController@update');
-Route::delete('/enseignant/delete/{id}', 'enseignantController@delete');
+Route::put('/enseignant/modifier/{id}', 'enseignantController@update');
+Route::delete('/enseignant/supprimer/{id}', 'enseignantController@delete');
 Route::get('/enseignants', 'enseignantController@index');
 
-Route::post('/groupe/create', 'groupeController@store');
-Route::get('/groupe/edit/{id}', 'groupeController@edit');
-Route::get('/groupe/afficher', 'groupeController@index');
-Route::post('/groupe/update/{id}', 'groupeController@update');
-Route::delete('/groupe/delete/{id}', 'groupeController@delete');
-Route::get('/groupes', 'groupeController@index');
+Route::get('/afficher', 'GroupeController@listgroup');
+Route::put('/groupe/modifier/{id}', 'GroupeController@update');
+Route::delete('/groupe/supprimer/{id}', 'GroupeController@delete');
+Route::post('/create', 'GroupeController@store');
+
+
