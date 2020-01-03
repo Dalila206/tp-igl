@@ -1,0 +1,62 @@
+Get Startes Esi-Scolarite is an application dedicated for esi students and teachers and adminastrators:
+It allows[for this first version of the app]:
+ a teacher to:submit marks for his students.
+ an administrator to:add a new teacher to the school's database.
+Authentication:
+for every user of the application(teacher,student or administrator)a user name and password is generated after joining the 
+school and sent by email.
+the user of the application can authetificate using his user name and password.
+once authentificated the user gets access to all the fonctionnalities affered by ESI_Scolarité.
+
+
+Setup:
+laravel:
+Once you've cloned this repository, You will need to be inside that project file to enter all of the rest of the commands
+ in this tutorial. So remember to type cd tp-igl to move your terminal working location to the project file we just
+ barely created. (Of course substitute “tp-igl” in the command above, with the name of the folder you created in the
+ previous step) then run the following commands:
+
+   composer install :When we run composer, it checks the composer.json file which is submitted to the github repo and lists all of the composer (PHP) packages that your repo requires. Because these packages are constantly changing, the source code is generally not submitted to github, but instead we let composer handle these updates. 
+   npm install: where we installed the composer PHP packages, but this is installing the Javascript (or Node) packages required. The list of packages that a repo requires is listed in the packages.json file which is submitted to the github repo.
+   cp .env.example .env :.env files are not generally committed to source control for security reasons. But there is a .env.example which is a template of the .env file that the project expects us to have. So we will make a copy of the .env.example file and create a .env file that we can start to fill out to do things like database configuration.
+   php artisan key:generate :If you check the .env file again, you will see that it now has a long random string of characters in the APP_KEY field. We now have a valid app encryption key.
+[this is not a command]Database connection:connect to your mysql database using the username root with an impty password.
+    php artisan migrate: It’s not a bad idea to check your database to make sure everything migrated the way you expected.
+    [Optional]php artisan db:seed : add dummy data your database to test it.
+
+vuetify:
+npm install -g @vue/cli:Install Vue Cli Node Package Globally using the following Command.
+npm install:Clone the application to local .Go into the project Folder and install the npm packages using the following command
+npm run serve:Run the following command to run the application.The Application runs on localhost:8080.
+
+enjoy ESI-Scolarité application.
+
+tutorials:
+  if you are authenticated as a teacher:
+you can submit your students marks by following the instructions:
+Remettre Notes -> Ajouter Etudiant -
+then you can add your data , click on Enregistrer to save or Annuler to cancel.
+ if you are authenticated as an administrator:
+you can add a new teacher by following the instructions:
+Affecter enseignant/groupes -> Ajouter Enseignant
+then you can add your data , you can either save or cancel.
+
+
+About:
+Esi Scolarite is an apllication developred by three esi students using php withthe framwork laravel in the backend
+vuejs for the front.
+this documentation is generated using Doxygen.
+Contact:
+you cancontact us on email:
+hd_khettaf@esi.dz
+gm_guessass@esi.dz
+hf_ait-benali@esi.dz
+
+<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+
+<p align="center">
+<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
+</p>
